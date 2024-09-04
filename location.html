@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Nearby Garages</title>
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+    }
+
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: #fff;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    h1, h3 {
+      text-align: center;
+    }
+
+    button {
+      padding: 10px 20px;
+      background-color: #cc1616;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #cc1616;
+    }
+
+    #garage-info {
+      margin-top: 20px;
+    }
+
+    .map-container {
+      margin-top: 20px;
+    }
+
+    .map {
+      height: 300px;
+      width: 100%;
+      border-radius: 5px;
+      overflow: hidden;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Nearby Garages</h1>
+    <button onclick="fetchNearbyGarages()">Find Nearby Garages</button>
+    <button style="margin-left: 555px;" onclick="window.location.href='index.html'">Back</button>
+    <div id="garage-info"></div>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js"></script>
+  <script>
+    let map;
+
+    function fetchNearbyGarages() {
+      if ("geolocation" in navigator) {
+        navigator.geolocation.getCurrentPosition(function(position) {
+          const latitude = position.coords.latitude;
+          const longitude = position.coords.longitude;
+          fetchGarages(latitude, longitude);
+        });
+      } else {
+        console.error("Geolocation is not supported by this browser.");
+      }
+    }
+
+    function fetchGarages(latitude, longitude) {
+      const apiKey = '0359dc4578f282c512ee4d1c347d2d5e';
+      const url = `https://api.openweathermap.org/data/2.5/find?lat=${latitude}&lon=${longitude}&cnt=10&appid=${apiKey}&type=garage`;
+
+      fetch(url)
+        .then(response => response.json())
+        .then(data => {
+          const garages = data.list;
+          let garageInfo = '<h3>Nearby Garages</h3>';
+          if (garages.length > 0) {
+            garages.forEach(garage => {
+              garageInfo += `
+                <p>Name: ${garage.name}</p>
+                <button onclick="showMap(${garage.coord.lat}, ${garage.coord.lon}, '${garage.name}', '${garage.address}')">Show Map</button>
+                <div id="${garage.name}-map" class="map" style="display: none;"></div>
+                <hr>
+              `;
+            });
+          } else {
+            garageInfo += '<p>No garages found nearby.</p>';
+          }
+          document.getElementById('garage-info').innerHTML = garageInfo;
+        })
+        .catch(error => {
+          console.error('Error:', error);
+          document.getElementById('garage-info').innerHTML = 'An error occurred while fetching garage information.';
+        });
+    }
+
+    function showMap(lat, lng, name, address) {
+      const mapDivId = `${name}-map`;
+      const mapDiv = document.getElementById(mapDivId);
+      if (!mapDiv.innerHTML) {
+        mapDiv.style.display = 'block';
+        const map = L.map(mapDivId).setView([lat, lng], 15);
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        }).addTo(map);
+        const marker = L.marker([lat, lng]).addTo(map);
+        marker.bindPopup(`<p>Name: ${name}</p><p>Address: ${address}</p>`);
+        
+        // Add zoom controls
+        L.control.zoom({ position: 'bottomright' }).addTo(map);
+      }
+    }
+  </script>
+</body>
+</html>
