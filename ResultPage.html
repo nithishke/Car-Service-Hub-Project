@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Result</title>
+</head>
+<style>
+    button{
+        width:60px;
+        border: hidden;
+        background: linear-gradient(to bottom, whitesmoke, orange);;
+        padding: 5px;
+        border-radius: 8px;
+        margin-left: 650px;
+    }
+    button:hover{
+        background: linear-gradient(to top, whitesmoke, orange);
+    }
+    iframe{
+        margin-left: 210px;
+        border: 0;
+    }
+</style>
+    <body>
+        <h1 style="text-align: center;">Result Page</h1>
+        <iframe id="myframe" scrolling="no" src="./resultpage1.html" width="1050px" height="800px" style="text-align: center;"></iframe>
+        <button id="p" onclick="pdf()">print</button>
+    
+    </body>
+    <script>
+     let pdf=()=>{
+        let print=document.getElementById("myframe");
+        print.contentWindow.focus();
+        print.contentWindow.print();
+     }
+    </script>
+</html>

@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+  </head>
+  <body>
+    <div>
+      <style>
+          body{
+              background-color:  rgb(2, 24, 49);
+          }
+          table{
+              border-color: white;
+              border-collapse: collapse;
+              empty-cells: hide;
+              float: left;
+              color: white;
+          }
+          th,td{
+              border:1px solid rgb(131, 158, 168);
+              padding: 5px;
+            
+          }
+          .ds{
+              float: left;
+              padding:10px 20px;
+              border: hidden;
+              border-bottom: 3px solid rgb(2, 24, 49);
+              width: 135px;
+              background-color:rgb(17, 54, 109);
+              color: white;
+           
+           }
+          .ds:focus{
+              background-color:rgb(2, 24, 49) ;
+              border-bottom-color:aqua;
+           }
+          img{
+              width: 30px;
+              height: 30px;
+          }
+          #div{
+              width: 50px;
+              height: 50px;
+          }
+          #top{
+              margin-top: 0%;
+              background-color: skyblue;
+          }
+          #loc{
+              float: right;
+              margin-right: 70px;
+              color: white;
+              font-family: Arial, Helvetica, sans-serif;
+          }
+          #t,#tp{
+              float: right;
+              margin-right: 20px;
+              margin-top: 10px;
+              background-color: transparent;
+              border: none;
+          }
+          header{
+              position: fixed;
+          }
+          #page1,#page2{
+            color: white;
+            display: none;
+          }
+      </style>
+      <header>
+          <div id="top">
+              <img id="div"src="img/iq-high-resolution-logo.png" alt="">
+              <button id="tp"><img src="img/power-64.ico" alt="" ></button>
+              <button id="t"><img src="img/settings-64.ico" alt="" ></button>
+              <p id="loc">Tirupathi</p>
+          </div>
+          <div>
+              <button class="ds" onclick="showPage('page1')"><img src="img/icons8-dashboard-48.png" alt=""><br><span>Dashborad</span></button>
+              <button class="ds" onclick="showPage('page2')"><img src="img/icons8-users-48.png" alt=""><br><span>Users</span></button>
+              <button class="ds"><img src="img/prioritization.png" alt=""><br><span>Priority</span></button>
+              <button class="ds"><img src="img/—Pngtree—collection icon_4423304.png" alt=""><br><span>Collectons</span></button>
+              <button class="ds"><img src="img/archive-icon-15958.png" alt=""><br><span>Archive</span></button>
+              <button class="ds"><img src="img/remove-icon-png-7133.png" alt=""><br><span>Deleted</span></button>
+              <button class="ds"><img src="img/trend.png" alt=""><br><span>Trends</span></button>
+              <button class="ds"><img src="img/clipboard.png" alt=""><br><span>Tasks</span></button>
+              <button class="ds"><img src="img/configuration.png" alt=""><br><span>Filters</span></button>
+              <button class="ds"><img src="img/icons8-graph-64.png" alt=""><br><span>Stats</span></button>
+          </div>
+      </header>
+      <br><br><br><br><br><br><br><br><br><br>
+       <div id="page1">
+          <table>
+              <tr>
+                  <th style="border-top:hidden; border-left:hidden; width:170px"></th>
+                  <th style="width: 200px;">Customer</th>
+                  <th>Company</th>
+                  <th>Contact</th>
+                  <th style="width: 300px;">Address</th>
+                  <th>Revenue</th>
+                  <th>VAT.</th>
+                  <th>Total Price</th>
+              </tr>
+              <tr>
+                  <td rowspan="2">March 2014</td>
+                  <td>IBBP Apps</td>
+                  <td>H&R Real I</td>
+                  <td>Joshuha O'M </td>
+                  <td>rangampeta</td>
+                  <td>$23,342</td>
+                  <td>$57,764</td>
+                  <td>$55,576</td>
+              </tr>
+              <tr>
+                  <td>IBBP Apps</td>
+                  <td>H&R Real I</td>
+                  <td>Joshuha O'M</td>
+                  <td>rangampeta</td>
+                  <td>$23,342</td>
+                  <td>$57,764</td>
+                  <td>$45,332</td>
+              </tr>
+          </table>
+      </div>
+      <div id="page2">
+          <h2>this is page two</h2>
+          <p>another page</p>
+      </div>
+      <script>
+          function showPage(pageId)
+          {
+          document.getElementById('page1').style.display= 'none';
+          document.getElementById('page2').style.display='none';
+
+          document.getElementById(pageId).style.display = 'block';
+          }
+      </script>
+  </body>
+</html>

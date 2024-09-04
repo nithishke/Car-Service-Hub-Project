@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Details</title>
+</head>
+<body>
+    <style>
+      #ud,#pd,#pfd{
+        font-size: 17px;
+        margin-left: 20%;
+        margin-right: 20%;
+      }
+      button{
+            margin-left: 40%;
+            border-style: hidden;
+            width: 20%;
+            padding:5px 5px ;
+            font-size: 16px;
+            cursor: pointer;
+            text-align: center;
+            background-color: #FCF6F5FF;
+            border-radius: 10px;
+            color: #89ABE3FF;
+      }
+      h1{
+        text-align: center;
+        color: #FCF6F5FF;
+      }
+      div{
+        background-color: transparent;
+        color: #FCF6F5FF;
+      }
+      input{
+        border-radius: 5px;
+      }
+      body{
+        background-color: #89ABE3FF;
+      }
+      fieldset{
+        border-color: #FCF6F5FF;
+        border-style: solid;
+      }
+    </style>
+    <h1>Sign up</h1>
+    <div id="ud">
+       <fieldset>
+        <legend style="font-size: larger;">
+            <b>User Details</b>
+        </legend>
+          <label for="fn">First Name:</label>
+          <label for="mn" style="margin-left: 12.7%;">Middle Name:</label>
+          <label for="ln" style="margin-left: 10%;">Last Name:</label><br>
+          <input type="text" id="fn"> 
+          <input type="text" id="mn">
+          <input type="text" id="ln"><br><br>
+          <label for="em">Email:</label>
+          <input type="email" id="em" style="margin-left: 8%;"><br><br>
+          <label for="pn">Phone Number:</label>
+          <input type="number" id="pn" size="10"required><br><br>
+       </fieldset>
+    </div><br><br>
+    <div id="pd">
+        <fieldset>
+          <legend style="font-size: larger;">
+            <b>Personal Details</b>
+          </legend>
+          <label for="ad">Adhaar Number:</label>
+          <input type="number" size="12" required><br><br>
+          <label for="p">PAN Card Number:</label>
+          <input type="text" id="p" size="10" required><br><br>
+          <label for="adr1">Address Line1:</label>
+          <input type="text" id="adr1"><br><br>
+          <label for="adr2">Address Line2:</label>
+          <input type="text" id="adr2"><br><br>
+          <label for="pc">PinCode:</label>
+          <input type="number" id="pc" size="6" required><br><br>  
+        </fieldset>
+    </div><br><br>
+    <div id="pfd">
+        <fieldset>
+          <legend style="font-size: larger;"><b>Professional Details</b></legend>
+          <label for="eq">Educational Qualifications:</label>
+          <select name="eq" id="eq" style="color: #89ABE3FF;">
+            <option value="diploma">Diploma</option>
+            <option value="mba">MBA</option>
+            <option value="be">BE/B.TECH</option>
+            <option value="barch">B.ARCH</option>
+            <option value="mca">MCA</option>
+            <option value="bsc">B.SC</option>
+            <option value="msc">M.SC</option>
+          </select><br><br>
+          <label for="tk">Technologies known:</label><br>
+          <textarea name="tk" id="tk" cols="10" rows="5"></textarea><br><br>
+          <label for="apd">Any projects Done:</label><br>
+          <textarea name="apd" id="apd" cols="10" rows="5"></textarea><br><br>
+          <label for="iii">Internship Involved In:</label>
+          <input type="text" id="iii"> <br><br><br>
+          <button>Done</button>
+        </fieldset>
+    </div>
+</body>
+</html>

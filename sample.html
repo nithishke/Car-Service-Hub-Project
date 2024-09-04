@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+</head>
+<body>
+    <style>
+        #pas,#em{
+            padding: 7px 7px;
+            width: 200px;
+            border-radius: 50px;
+            border-width: thin;
+            border-style: solid;
+            background-color: transparent;
+            border-color: white;
+            color: white;
+        }
+        button{
+            padding: 7px 7px;
+            width: 220px;
+            border-radius: 50px;
+            border-style: solid;
+            border-width: thin;
+            border-color: rgb(255, 255, 255);
+        }
+        form{
+            margin-left: 40%;
+            margin-top: 8%;
+            border-style: solid;
+            border-width: thin;
+            float: left;
+            padding: 25px 45px;
+            border-radius: 15px;
+            backdrop-filter: blur(25px);
+            color: white;
+            font-size: larger;
+        }
+        #fp{
+            margin-left: 15px;
+            text-decoration: none;
+            color: white;
+            font-size: small;
+        }
+        #r{
+          text-decoration: none;
+            color: white;
+            font-size: small;
+            text-decoration: none;
+            margin-left: 4px;  
+        }
+        body{
+            background-image:url(img/pexels-joyston-judah-933054.jpg);
+            background-size: cover;
+            background-position: center;
+        }
+        ::placeholder{
+            color: white;
+        }
+        p{
+            font-size: small;
+            margin-left: 25px;
+        }
+    </style>
+      <form action="">
+        <h1 style="margin-left:60px;">Login</h1><br>
+        <input type="text" placeholder="Email" id="em"><br><br>
+        <input type="password" placeholder="Password" id="pas"><br><br>
+        <input type="checkbox" id="rm">
+        <label for="rm" style="font-size: small;">Remember me</label>
+        <a href="./forget.html" id="fp" target="_blank">Forgot Password?</a><br><br>
+        <button style="background-color: white;">Login</button><br><br>
+        <p>Don't have an account?<a href="" id="r">Register</a></p>
+      </form>
+</body>
+</html>

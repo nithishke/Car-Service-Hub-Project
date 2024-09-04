@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Time Table</title>
+    <style>
+        table{
+            border-collapse: collapse;
+            text-align: center;
+        }
+        th,td{
+            border: thin solid black;
+            padding: 10px;
+        }
+        th{
+            background-color: gray;
+        }
+        td:hover{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 style="text-align: center;">Branch: COMPUTER SCIENCE AND ENGINEERING - CYBER SECURITY</h1>
+    <table>
+        <tr>
+            <th>Day/<br>Hr</th>
+            <th ondblclick="time()">10:30AM<br>To <br>11:20AM</th>
+            <th ondblclick="time()">11:20AM<br>To <br>12:10PM</th>
+            <th ondblclick="time()">12:10PM<br>To <br>1:00PM</th>
+            <th ondblclick="time()" rowspan="6">L<br>U<br>N<br>C<br>H<br><br>B<br>R<br>E<br>A<br>K <br></th>
+            <th ondblclick="time()">02:15PM<br>To <br>03:05PM</th>
+            <th ondblclick="time()">03:05PM<br>To <br>03:55PM</th>
+            <th ondblclick="time()">03:55PM<br>To <br>04:45PM</th>
+        </tr>
+        <tr>
+            <th id="monday" ondblclick="fname(id)">MON</th>
+            <td  id="blab" colspan="3"onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">BASH LAB <br> Room No: 511</td>
+            <td id="wt" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">WT</td>
+            <td  id="ml" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">ML</td>
+            <td id="pbea" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">PBEA</td>
+        </tr>
+        <tr>
+            <th id="Tuesday" ondblclick="fname(id)">TUE</th>
+            <td id="dfl" colspan="3" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">DF LAB <br> Room No: 408-A</td>
+            <td id="foe" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">FoE</td>
+            <td id="awsn" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">AWSN</td>
+            <td id="wt1" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">WT</td>
+        </tr>
+        <tr>
+            <th id="wednesday" ondblclick="fname(id)">WED</th>
+            <td id="foe1" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">FoE</td>
+            <td id="ml1" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">ML</td>
+            <td id="lib" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">LIB</td>
+            <td id="pbea1"onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">PBEA</td>
+            <td id="mpi" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">MPI</td>
+            <td id="df" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">DF</td>
+        </tr>
+        <tr>
+            <th id="Thrusday"  ondblclick="fname(id)">THU</th>
+            <td id="wt2" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">WT</td>
+            <td id="ml2" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">ML</td>
+            <td id="awsn1" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">AWSN</td>
+            <td id="pbea2" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">PBEA</td>
+            <td id="df1" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">DF</td>
+            <td id="mpi1" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">MPI</td>
+        </tr>
+        <tr>
+            <th id="Fridaay" ondblclick="fname(id)">FRI</th>
+            <td id="wtl" colspan="3" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">WT LAB <br> Room No: 511</td>
+            <td id="mpi2" onclick="handleClick(id)" ondblclick="handleDoubleClick(id)" value="">MPI</td>
+            <td id="df2" onclick="handleClick()" ondblclick="handleDoubleClick(id)">DF</td>
+            <td id="awsn2"onclick="handleClick(id)" ondblclick="handleDoubleClick(id)">AWSN</td>
+        </tr>
+    </table>
+</body>
+<script>
+    function handleClick(sname){
+        //var subid=document.getElementById(sname).innerHTML;
+        //alert(subid);
+    };
+    function handleDoubleClick(sid){
+      var sub2=document.getElementById(sid);
+      sub2.innerHTML="Leisure";
+    };
+    function time(){
+        document.body.innerHTML="<div style='text-align:center; font-size:xx-large; margin-top:25%;'>Timings Cannot Be Modified</div>"
+    };
+    function fname(d){
+        var data=document.getElementById(d);
+        if (data.innerHTML==="MON"){
+            data.innerHTML="Monday";
+        }
+        else if(data.innerHTML==="TUE"){
+            data.innerHTML="Tuesday";
+        }
+        else if(data.innerHTML==="WED"){
+            data.innerHTML="Wednesday";
+        }
+        else if(data.innerHTML==="THU"){
+            data.innerHTML="Thursday";
+        }
+        else{
+            data.innerHTML="Friday";
+        }
+    }
+</script>
+</html>
